@@ -28,7 +28,10 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
+  // const uniqueTransports = new Set(this.journeys.map(journey => journey.transport)) // it works, but not in the corect order
+  const allTransports = this.journeys.map((journey) => journey.transport);
+  const uniqueTransports = allTransports.filter((transport, index, array) => array.indexOf(transport) === index); // it works... but what's array in indexOf?!
+  return uniqueTransports;
 };
 
 
